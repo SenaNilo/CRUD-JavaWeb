@@ -1,0 +1,23 @@
+server: 
+    port: 8080
+
+spring:
+    datasource:
+        url: jdbc:postgresql://localhost:5432/niloinvest
+        # url: jdbc:postgresql://localhost:8080/niloinvest
+        username: postgres
+        password: root
+        driver-class-name: org.postgresql.Driver
+        # spring.datasource.driver-class-name: com.mysql.cj.jdbc.Driver
+        initialize: true
+    
+    jpa:
+        hibernate:
+            ddl-auto: create-drop
+            generate-ddl: true
+        
+    sql:
+        init:
+            schema-locations: classpath:/schema-postgresql.sql
+            mode: always
+            platform: postgres

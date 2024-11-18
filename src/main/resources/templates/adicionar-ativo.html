@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <h1>Cadastro ativo</h1>
+    <form th:action="@{/adicionar}" method="post" th:object="${ativo}">
+        Tipo do Ativo para adicionar a carteira
+        <select name="id_tpAtivo" th:field="*{id_tpAtivo}">
+            <option value="1" default>Real</option>
+            <option value="2">Dólar</option>
+            <option value="3">Euro</option>
+            <option value="4">Iene</option>
+            <option value="5">Bitcoin</option>
+            <option value="6">BNB</option>
+            <option value="7">Ether</option>
+            <option value="8">Dogecoin</option>
+        </select>
+        <br>
+        
+        Valor final do ativo <input type="number" th:field="*{vl_ativos}">
+        
+        Comprar por R$ <input type="number" th:field="*{vl_real}">
+        
+        <input type="submit" value="Adicionar" name="adicionar">
+    </form>
+</body>
+</html>

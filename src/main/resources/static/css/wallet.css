@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fauna+One&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url('../img/bkgMoney.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 45%;
+    background-color: rgba(0, 0, 0, 1);
+    height: 100vh;
+    font-family: 'Fauna One', sans-serif;
+    overflow-x: none;
+}
+header, main{
+    background-color: rgba(0, 0, 0, 0.495);
+    color: white;
+    width: 100vw;
+}
+main{
+    height: auto;
+    padding: 1.3em;
+
+    & #total{
+        display: flex;
+        width: 100%;
+    }
+    & #total>div{
+      background-color: rgb(0, 0, 0);
+      padding: 6px;
+      height: auto;
+    }
+
+    & #total>div#grafico-barra{
+      width: 65%;
+      padding: 1em;
+
+      & div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        margin: auto;
+        width: 100%;
+      }
+    }
+
+
+    & #total>div#grafico-disco{
+      width: 35%;
+      padding: 1em;
+
+      & div{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        margin: auto;
+        height: 90%;
+        width: 90%;
+      }
+    }
+
+      
+      & #ativos div:first-of-type{
+        background-color: #000;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+      }
+      
+      & #ativos div{
+        background-color: purple;
+        padding: 10px;
+        margin: 20px 0;
+      }     
+    }
+
+/* NavBar */
+header{
+    padding: 1.4em 1.3em;
+    font-size: 1.1em;
+
+    & ul{
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        list-style-type: none;
+    }
+
+    & .button {
+        --animation-color: #f2d742;
+        letter-spacing: 3px;
+        text-decoration: none;
+        font-size: 1.5em;
+        font-family: "Cinzel", "Arial";
+        position: relative;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.65);
+    }
+    /* this is the text, when you hover on button */
+    & .hover-text {
+        position: absolute;
+        box-sizing: border-box;
+        color: var(--animation-color);
+        width: 0%;
+        inset: 0;
+        border-right: 6px solid var(--animation-color);
+        overflow: hidden;
+        transition: 0.5s;
+        -webkit-text-stroke: 2px var(--animation-color);
+    }
+    /* hover */
+    & .button:hover .hover-text {
+        width: 100%;
+        filter: drop-shadow(0 0 23px var(--animation-color))
+    }
+
+    & .icon-text{
+        display: flex;
+        align-items: center;
+    }
+    & .icon-text svg{
+        background-color: #fff;
+        padding: 6px;
+        width: 2.1em;
+        height: 2.1em;
+        border-radius: 6px;
+        margin-right: 0.7em;
+    }
+
+    & .add-ativo svg{
+      margin-right: 0.5em;
+      border-radius: 50%;
+    }
+
+    /* Carteiras */
+    & .select{
+      width: fit-content;
+      cursor: pointer;
+      position: relative;
+      transition: 300ms;
+      color: white;
+      letter-spacing: 1px;
+      overflow: hidden;
+    
+      &:hover > .options {
+        opacity: 1;
+        top: 0;
+      }
+      &:hover > .selected .arrow {
+        transform: rotate(0deg);
+      }
+    
+      & .selected {
+      background-color: #0a0a0a;
+      padding: 7px;
+      margin-bottom: 3px;
+      border-radius: 5px;
+      position: relative;
+      z-index: 100000;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    
+      
+      & .arrow {
+        position: relative;
+        right: 0px;
+        height: 10px;
+        transform: rotate(-90deg);
+        width: 25px;
+        fill: white;
+        z-index: 100000;
+        transition: 300ms;
+      }
+      }
+    
+      & .options {
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        padding: 5px;
+        background-color: #0a0a0a;
+        position: relative;
+        top: -100px;
+        opacity: 0;
+        transition: 300ms;
+      
+        & .option {
+          border-radius: 5px;
+          padding: 5px;
+          transition: 300ms;
+          background-color: #0a0a0a;
+          width: 150px;
+          font-size: 15px;
+        }
+        & .option:hover {
+          background-color: #323741;
+        }
+        
+        & input[type="radio"] {
+          display: none;
+        }
+        
+        & label {
+          display: inline-block;
+        }
+        & label::before {
+          content: attr(data-txt);
+        }
+        
+        & input[type="radio"]:checked + label {
+          display: none;
+        }
+        
+        & input[type="radio"]#all:checked + label {
+          display: none;
+        }
+      
+        & input[type="radio"]{
+          .select:has(&#all:checked) .selected::before {
+            content: attr(data-default);
+          }
+          .select:has(&.options input[type="radio"]#option-1:checked) .selected::before {
+            content: attr(data-one);
+          }
+          .select:has(&.options input[type="radio"]#option-2:checked) .selected::before {
+            content: attr(data-two);
+          }
+          .select:has(&.options input[type="radio"]#option-3:checked) .selected::before {
+            content: attr(data-three);
+          }
+        }
+      }
+    }
+}
+
+    
+
+/* Botão */
+.add-ativo {
+  width: 140px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right,#77530a,#ffd277,#77530a,#77530a,#ffd277,#77530a);
+  background-size: 250%;
+  background-position: left;
+  color: #ffd277;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 1s;
+  overflow: hidden;
+}
+
+.add-ativo::before {
+  position: absolute;
+  content: "Adicionar Ativo";
+  font-size: 0.91em;
+  color: #ffd277;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97%;
+  height: 90%;
+  border-radius: 8px;
+  transition-duration: 1s;
+  background-color: rgba(0, 0, 0, 0.842);
+  background-size: 200%;
+}
+
+.add-ativo:hover {
+  background-position: right;
+  transition-duration: 1s;
+}
+
+.add-ativo:hover::before {
+  background-position: right;
+  transition-duration: 1s;
+}
+
+.add-ativo:active {
+  transform: scale(0.95);
+}

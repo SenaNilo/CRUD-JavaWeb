@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{css/index.css}'>
+</head>
+<body>
+    <header>
+        <h1>Sua melhor carteira virtual!</h1>
+        <p>O melhor lugar para organizar suas finanças</p>
+        <a th:href="@{/carteira}">
+            <button>
+                <img height="24" width="24" src="img/svg/money-stack-svgrepo-com.svg"></img>
+                <span>Acessar</span>
+            </button>
+        </a>
+    </header>
+</body>
+</html>
+
+<!-- moedas fiduciárias -->

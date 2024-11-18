@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Fauna+One&display=swap');
+@keyframes shake {
+    0% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: url('../img/bkgMoney.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 45%;
+    background-color: rgba(0, 0, 0, 1);
+    height: 100vh;
+    font-family: 'Fauna One', sans-serif;
+}
+header{
+    background-color: rgba(0, 0, 0, 0.495);
+    color: white;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header h1{
+    font-family: 'Cinzel', sans-serif;
+}
+
+/* Button */
+a{
+    text-decoration: none;
+}
+button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 17px;
+    padding: 0.56em 1.3em 0.56em 0.9em;
+    background: #ad5389;
+    background: linear-gradient(to right, #f2e50a, #f2d742, #e4c458);
+    border: none;
+    letter-spacing: 0.05em;
+    border-radius: 13px;
+    margin-top: 10px;
+}
+
+button img {
+    margin-right: 3px;
+    transition: transform 0.2s ease-in-out;
+}
+
+button span {
+    transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+button:hover img {
+    animation: shake 0.5s ease-in-out infinite alternate;
+    /* transform: rotate(-5deg); */
+}
+
+button:hover span {
+    transform: translateX(7px);
+}
