@@ -3,10 +3,10 @@ server:
 
 spring:
     datasource:
-        url: jdbc:postgresql://localhost:5432/niloinvest
+        url: jdbc:postgresql://dpg-cstjubogph6c739fgvu0-a.oregon-postgres.render.com:5432/banco_wsge
         # url: jdbc:postgresql://localhost:8080/niloinvest
-        username: postgres
-        password: root
+        username: banco_wsge_user
+        password: 73RHK826yS3eweE4tD4AXndJPvwhpF0O
         driver-class-name: org.postgresql.Driver
         # spring.datasource.driver-class-name: com.mysql.cj.jdbc.Driver
         initialize: true
