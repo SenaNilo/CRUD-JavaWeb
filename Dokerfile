@@ -11,4 +11,4 @@ RUN chmod 777 mvnw
 
 RUN ./mvnw package
 
-CMD ["java","-jar", "target/NiloInvestimentos.war"]
+CMD ["java","-jar","target/NiloInvestimentos.war"]
