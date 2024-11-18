@@ -13,4 +13,4 @@ RUN ./mvnw package
 
 RUN ls -l ./target
 
-CMD ["java","-jar","target/CRUD-JavaWeb.war"]
+CMD ["java","-jar","target/NiloInvestimentos-0.0.1-SNAPSHOT.war"]
