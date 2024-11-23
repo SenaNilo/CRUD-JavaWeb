@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS tb_tpativos (
 
 INSERT INTO tb_tpativos (tp_ativo, nm_ativo, tx_conversao) VALUES
     ('BRL', 'Real', 1),
-    ('USD', 'Dólar', 0.17),
+    ('USD', 'Dolar', 0.17),
     ('EUR', 'Euro', 0.16),
     ('JPY', 'Ienes', 26.50),
     ('BTC', 'Bitcoin', 0.00000216),

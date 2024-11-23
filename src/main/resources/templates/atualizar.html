@@ -3,18 +3,20 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Adicionar ativo</title>
+    <title>Atualizar Cadastro</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' th:href='@{css/cadastro.css}'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href='@{../css/cadastro.css}'>
 </head>
 <body>
-    <form th:action="@{/adicionar}" method="post" th:object="${ativo}" class="login__form">
-        <h1 class="login__title">Adicionar Ativo na Carteira</h1>
-
+    
+    <form th:action="@{'/atualizar/' + ${idAtivo}}" method="post" th:object="${ativo}" class="login__form">
+        <h1 class="login__title">Atualizar registro</h1>
+        
         <div class="login__content">
+
             <div class="login__box-input">
                 <label for="id_tpAtivo">Moeda do ativo</label>
-                <select style="background: #0000005e;" id="id_tpAtivo" class="login__input" name="id_tpAtivo" th:field="*{id_tpAtivo}" oninput="calcularValorAtivo()">
+                <select style="background: #0000005e;" class="login__input" id="id_tpAtivo" name="id_tpAtivo" th:field="*{id_tpAtivo}" oninput="calcularValorAtivo()">
                     <option value="1" selected>Real</option>
                     <option value="2">Dólar</option>
                     <option value="3">Euro</option>
@@ -25,26 +27,27 @@
                     <option value="8">Dogecoin</option>
                 </select>
             </div>
-            
-            
-            <div class="login__box-input">
-                <label for="vl_real">Comprar por Reais </label>
-                <input class="login__input" id="vl_real" type="number" th:field="*{vl_real}" oninput="calcularValorAtivo()" step=".01">
-            </div>
 
             <div class="login__box-input">
-                <label for="vl_ativos">Valor convertido </label>
-                <input class="login__input" id="vl_ativos" type="number" th:field="*{vl_ativos}" value="0" step="any">
+                <label for="vl_real">Comprar por R$ </label>
+                <input id="vl_real" class="login__input" type="number" th:field="*{vl_real}" oninput="calcularValorAtivo()" step=".01">
             </div>
+    
+            <div class="login_box-input">
+                <label for="vl_ativos">Valor convertido </label>
+                <input id="vl_ativos" class="login__input" type="number" th:field="*{vl_ativos}" value="0" step="any" readonly>
+            </div>
+
         </div>
         
         <input class="login__button" type="submit" value="Adicionar" name="adicionar">
-
+        
         <p class="login__register">
             <a th:href="@{/carteira}">Voltar para Carteira</a>
         </p>
 
     </form>
+    
 
 
     <script>

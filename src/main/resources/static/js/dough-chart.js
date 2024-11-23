@@ -1,24 +1,37 @@
-const doughc = document.getElementById("dough-chart")
+const graficoDonut = document.getElementById("dough-chart")
 
-const data = {
-    labels: [
-        'Red',
-        'Blue',
-        'Yellow'
-    ],
-    datasets: [{
-        label: 'My First Dataset',
-        data: [300, 50, 100],
-        backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-        ],
-        hoverOffset:4                                       
-    }]
-};
+function showDonut(lsValores){
 
-new Chart(doughc, {
-    type: 'doughnut',
-    data: data,
-})
+    var names = [];
+    var values = [];
+
+    for(let objLs of lsValores){
+        names.push(Object.keys(objLs)[0]) // pegar a "ChaVe" od obj como Real, Dolar etc
+        values.push(objLs[Object.keys(objLs)[0]]) // Pegar o valor - Dinheiro, da chave correspondente
+    }
+        
+    
+    const data = {
+        labels: names,
+        datasets: [{
+            label: 'Patrimônio Total',
+            data: values,
+            backgroundColor: [
+                'rgb(34, 139, 34)',
+                'rgb(255, 0, 0)',
+                'rgb(0, 0, 255)',
+                'rgb(255, 105, 180)',
+                'rgb(255, 223, 0)',
+                'rgb(255, 204, 0)',
+                'rgb(0, 255, 255)',
+                'rgb(245, 245, 220)'
+            ],
+            hoverOffset:4                                
+        }]
+    };
+    
+    new Chart(graficoDonut, {
+        type: 'doughnut',
+        data: data,
+    })
+}

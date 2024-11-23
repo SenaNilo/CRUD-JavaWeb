@@ -18,6 +18,8 @@ public class TipoAtivo {
         this.tx_conversao = tx_conversao;
     }
 
+    
+
     public int getId_tpAtivo() {
         return id_tpAtivo;
     }
